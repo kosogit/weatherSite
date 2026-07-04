@@ -7,6 +7,7 @@
 body{
     font-family: 'Courier New', Courier, monospace;
     background-color: #121212;
+    
     color: white;
     
     display: flex;
@@ -33,7 +34,7 @@ h1{
     font-size: 24px;
 }
 
-.inner-container{
+.innercontainer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -61,7 +62,7 @@ button{
 button:hover {
     background-color: rgb(132, 0, 255);
 }
-#weather-info {
+#weatherinfo {
     margin-top: 20px;
 }
 
@@ -71,4 +72,16 @@ button:hover {
 #error-message{
     color:red;
     margin-top: 20px;
+}
+body.rain {
+    background-image: url("image/rain.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+body.spring{
+    background-image: url("image/spring.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

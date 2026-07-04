@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     })
     async function fetchdata(city){
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_key}`
         const respond = await fetch(url);
 
         if(!respond.ok){
@@ -34,10 +34,21 @@ document.addEventListener('DOMContentLoaded',()=>{
     function display(data){
         console.log(data);
         const {name, main, weather} = data;
+        document.body.classList.remove("rain","spring")
+
+        if (weather[0].main === "Rain") {
+            document.body.classList.add("rain");
+        } 
+        else if (weather[0].main === "Clouds") {
+            document.body.classList.add("spring");
+        }
+        
+        
         city.textContent = name;
-        temperaturedisplay.textContent =`Temperature : ${main.temp}`;
+        temperaturedisplay.textContent =`Temperature : ${main.temp}°C`;
         descriptiondisplay.textContent = `Weather :${weather[0].description}`;
 
+        
         weatherifo.classList.remove("hidden");
         error.classList.add("hidden")
 
